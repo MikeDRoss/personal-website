@@ -7,11 +7,12 @@ import Resume from './components/Resume';
 import NotFound from './components/NotFound'
 import * as serviceWorker from './serviceWorker';
 import {
-    BrowserRouter as Router, Switch, Route,
+    HashRouter as Router, Switch, Route,
 } from 'react-router-dom';
 
+
 ReactDOM.render(
-    <Router basename="/personal-website">
+    <Router>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/about" component={About} />
