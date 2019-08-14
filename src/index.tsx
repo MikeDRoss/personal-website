@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 ReactDOM.render(
-    <Router>
+    <Router basename="/personal-website">
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/about" component={About} />
