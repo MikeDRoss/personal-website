@@ -34,7 +34,7 @@ const Footer = () => (
             <li key={i.label}><a href={i.link}><FontAwesomeIcon icon={i.icon} /></a></li>
           ))}
         </ul>
-        <p className="copyright">&copy; Michael Ross <Link to="/">blah.com</Link>.</p>
+        <p className="copyright">&copy; Michael Ross <Link to="/">mikedross.github.io</Link></p>
       </section>
     </section>
   );
