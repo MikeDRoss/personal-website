@@ -8,7 +8,16 @@ type Props = {
 }
 
 class Main extends Component<Props> {
-    render () {
+  componentWillMount() {
+    window.scrollTo({
+      top:0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
+
+  render () {
     return (
           <div id="wrapper">
             <Helmet titleTemplate="%s | Michael Ross" defaultTitle="Michael Ross" />
@@ -19,7 +28,7 @@ class Main extends Component<Props> {
             <Footer />
           </div>
     );
-    }
+  }
 }
 
-  export default Main;
+export default Main;
