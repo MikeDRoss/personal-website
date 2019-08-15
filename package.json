@@ -1,5 +1,5 @@
 {
-  "homepage" : "http://MikeDRoss.github.io/personal-website",
+  "homepage": "http://MikeDRoss.github.io/personal-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,12 +10,14 @@
     "@types/jest": "24.0.17",
     "@types/node": "12.7.1",
     "@types/react": "16.9.1",
+    "@types/react-burger-menu": "^2.2.5",
     "@types/react-dom": "16.8.5",
     "@types/react-helmet": "^5.0.9",
     "@types/react-router-dom": "^4.3.4",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
+    "react-burger-menu": "^2.6.10",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",

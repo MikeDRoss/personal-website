@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import headers from '../data/HeaderData';
-
+import Hamburger from './Hamburger';
 
 class Header extends React.Component {
   render() {  
@@ -19,6 +19,7 @@ class Header extends React.Component {
         ))}
         </ul>
       </nav>
+      <Hamburger />
     </header>
       );
     }

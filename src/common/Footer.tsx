@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfilePic from '../static/img/Profile_Pic.png'
 import icons from '../data/IconData'
 
-const Footer = () => (
+const Footer:React.FC = () => (
     <section id="sidebar">
       <section id="intro">
         <Link to="/" className="logo">
