@@ -5,8 +5,8 @@ type HeaderInfo = {
 
 const headers: Array<HeaderInfo> = [
     {
-      url: "about",
-      text: 'About'
+        url: "about",
+        text: 'About'
     },
     {
         url: "resume",
