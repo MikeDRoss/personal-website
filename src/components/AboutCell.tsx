@@ -1,5 +1,6 @@
 import React from 'react';
 import { AboutCellDataType } from '../data/AboutCellData'
+import { Link } from 'react-router-dom';
 
 const AboutCell = ( {aboutCellData } : {aboutCellData: AboutCellDataType}) => (
   
@@ -8,7 +9,7 @@ const AboutCell = ( {aboutCellData } : {aboutCellData: AboutCellDataType}) => (
       <header>
         <h3>{aboutCellData.title}</h3>
       </header>
-      <a href={process.env.PUBLIC_URL} className="image"><img src={process.env.PUBLIC_URL + aboutCellData.image} alt="" /></a>
+      <Link to={aboutCellData.link} className="image"><img src={process.env.PUBLIC_URL + aboutCellData.image} alt="" /></Link>
       <div className="description">
         <p>{aboutCellData.subtitle}</p>
       </div>

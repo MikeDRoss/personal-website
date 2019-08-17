@@ -4,6 +4,7 @@ import './static/css/main.scss';
 import App from './App';
 import About from './components/About';
 import Resume from './components/Resume';
+import Travel from './components/Travel';
 import NotFound from './components/NotFound'
 import * as serviceWorker from './serviceWorker';
 import {
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/about" component={About} />
         <Route path="/resume" component={Resume} />
+        <Route path="/travel" component={Travel} />
         <Route component={NotFound} status={404} 
         />
       </Switch>
