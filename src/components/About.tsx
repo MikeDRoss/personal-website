@@ -8,7 +8,7 @@ import AboutCell from './AboutCell'
 const About:React.FC = () => (
     <Main>
     <Helmet title="About" />
-    <article className="post" id="projects">
+    <article className="post" id="about-sections">
       <header>
         <div className="title">
           <h2><Link to="/about">About Me</Link></h2>

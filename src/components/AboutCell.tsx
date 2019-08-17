@@ -1,8 +1,7 @@
 import React from 'react';
-import url from 'url';
 import { AboutCellDataType } from '../data/AboutCellData'
 
-const Cell = ( {aboutCellData } : {aboutCellData: AboutCellDataType}) => (
+const AboutCell = ( {aboutCellData } : {aboutCellData: AboutCellDataType}) => (
   
   <div className="cell-container">
     <article className="mini-post">
@@ -17,4 +16,4 @@ const Cell = ( {aboutCellData } : {aboutCellData: AboutCellDataType}) => (
   </div>
 );
 
-export default Cell;
+export default AboutCell;
