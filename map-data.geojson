@@ -4,8 +4,9 @@
     {
       "type": "Feature",
       "id" : "USA",
-      "properties": {
-        "name" : "United States"
+      "properties":{
+        "name":"United States",
+        "id": "USA"
       },
       "geometry": {
         "type": "Polygon",
