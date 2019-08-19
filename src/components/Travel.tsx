@@ -1,65 +1,23 @@
 import React from 'react';
 import Main from '../layouts/Main'
 import Helmet from 'react-helmet'
-import ReactMapGL from 'react-map-gl';
-import {json} from 'd3-request';
-import {defaultMapStyle, generateMapStyle} from '../data/MapData'
-// Without this import, the console displays a 'missing CSS declaration' warning
-import 'mapbox-gl/dist/mapbox-gl.css'
+import Map from './Map'
 
+const Travel:React.FC = () => (
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || '';
+<Main>
+    <Helmet title="Travel" />
+    <article className="post" id="about-sections">
+        <header>
+            <div className="title">
+            <h2>Travel Map</h2>
+            <p>This is an interactive map of the countries I have visited, or hope to visit in the future! Hover over them to get a closer look</p>
+            </div>
+        </header>
+    </article>
+    <Map />
+</Main>
+);
 
-const initialState = {
-    mapStyle: defaultMapStyle,
-    mapData: null,
-    viewport: {
-        height:600,
-        width:'100%',
-        latitude: 30,
-        longitude: 0,
-        zoom: 1.2
-    }
-};
+export default Travel;
 
-
-type State = typeof initialState;
-type Viewport = typeof initialState.viewport;
-
-export default class Travel extends React.Component<{}, State> {
-    public state: State = initialState;
-
-    public setMapLayers = () => {
-        json(process.env.PUBLIC_URL + '/map-data.geojson', (error, mapData : any) => {
-            if(!error) {
-                this.setState({mapStyle:generateMapStyle(mapData), mapData});
-            }
-        });
-    }
-
-    public render() {
-        const { viewport, mapStyle } = this.state;
-        return (
-            <Main>
-            <Helmet title="Travel" />
-            <article className="post" id="about-sections">
-                <header>
-                    <div className="title">
-                    <h2>Travel Map</h2>
-                    <p>This is an interactive map of the countries I have visited, or hope to visit in the future! Hover over them to get a closer look</p>
-                    </div>
-                </header>
-            </article>
-
-            <ReactMapGL
-                {...viewport}
-                mapStyle={mapStyle}
-                mapboxApiAccessToken={MAPBOX_TOKEN}
-                onLoad={() => this.setMapLayers()}
-                onViewportChange={(viewport:any )=> this.setState({ viewport })}
-            >
-            </ReactMapGL>
-            </Main>
-        );
-    }
-};
