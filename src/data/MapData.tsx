@@ -20,8 +20,4 @@ export const generateMapStyle = (data: any) => defaultMapStyle
         type: 'geojson',
         data
     }))
-    .set('layers', defaultMapStyle.get('layers').push(fillLayer));
-
-
-
-    
+    .set('layers', defaultMapStyle.get('layers').push(fillLayer));    

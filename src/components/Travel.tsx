@@ -11,7 +11,8 @@ const Travel:React.FC = () => (
         <header>
             <div className="title">
             <h2>Travel Map</h2>
-            <p>This is an interactive map of the countries I have visited, or hope to visit in the future! Hover over them to get a closer look</p>
+            <p>This is an interactive map of the countries I have visited, or hope to visit in the future!</p>
+            <p>Try clicking on one of the countries ive visited!</p>
             </div>
         </header>
     </article>
