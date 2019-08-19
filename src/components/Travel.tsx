@@ -2,57 +2,52 @@ import React from 'react';
 import Main from '../layouts/Main'
 import Helmet from 'react-helmet'
 import ReactMapGL from 'react-map-gl';
+import {json} from 'd3-request';
+import {defaultMapStyle, generateMapStyle} from '../data/MapData'
+// Without this import, the console displays a 'missing CSS declaration' warning
+import 'mapbox-gl/dist/mapbox-gl.css'
+
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || '';
+
 const initialState = {
+    mapStyle: defaultMapStyle,
+    mapData: null,
     viewport: {
-        height: 400,
+        height: window.innerHeight,
+        width: window.innerWidth,
         latitude: 0,
         longitude: 0,
-        width: 400,
-        zoom: 1,
+        zoom: 1
     }
 };
+
+
 type State = typeof initialState;
 type Viewport = typeof initialState.viewport;
 
 export default class Travel extends React.Component<{}, State> {
     public state: State = initialState;
 
-    public componentDidMount() {
-        window.addEventListener('resize', this.resize);
-        this.resize();
+    public setMapLayers = () => {
+        json(process.env.PUBLIC_URL + '/map-data.geojson', (error, mapData : any) => {
+            if(!error) {
+                this.setState({mapStyle:generateMapStyle(mapData), mapData});
+            }
+        });
     }
-
-    public componentWillUnmount() {
-        window.removeEventListener('resize', this.resize);
-    }
-
-    public updateViewport = (viewport: Viewport) => {
-        this.setState(prevState => ({
-            viewport: { ...prevState.viewport, ...viewport },
-        }));
-    };
-
-    public resize = () => {
-        this.setState(prevState => ({
-            viewport: {
-                ...prevState.viewport,
-                height: window.innerHeight,
-                width: window.innerWidth,
-            },
-        }));
-    };
 
     public render() {
-        const { viewport } = this.state;
+        const { viewport, mapStyle } = this.state;
         return (
             <Main>
-            <Helmet title="About" />
+            <Helmet title="Travel" />
             <ReactMapGL
                 {...viewport}
+                mapStyle={mapStyle}
                 mapboxApiAccessToken={MAPBOX_TOKEN}
-                onViewportChange={(v: any) => this.updateViewport(v)}
+                onLoad={() => this.setMapLayers()}
+                onViewportChange={(viewport:any )=> this.setState({ viewport })}
             >
             </ReactMapGL>
             </Main>

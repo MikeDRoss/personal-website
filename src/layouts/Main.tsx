@@ -8,6 +8,8 @@ type Props = {
 }
 
 class Main extends Component<Props> {
+
+  // TODO: Update this lifecycle method to remove warning from console
   componentWillMount() {
     window.scrollTo({
       top:0,
