@@ -42,6 +42,15 @@ export default class Travel extends React.Component<{}, State> {
         return (
             <Main>
             <Helmet title="Travel" />
+            <article className="post" id="about-sections">
+                <header>
+                    <div className="title">
+                    <h2>Travel Map</h2>
+                    <p>This is an interactive map of the countries I have visited, or hope to visit in the future! Hover over them to get a closer look</p>
+                    </div>
+                </header>
+            </article>
+
             <ReactMapGL
                 {...viewport}
                 mapStyle={mapStyle}
