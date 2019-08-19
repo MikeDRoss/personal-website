@@ -14,11 +14,11 @@ const initialState = {
     mapStyle: defaultMapStyle,
     mapData: null,
     viewport: {
-        height: window.innerHeight,
-        width: window.innerWidth,
-        latitude: 0,
+        height:600,
+        width:'100%',
+        latitude: 30,
         longitude: 0,
-        zoom: 1
+        zoom: 1.2
     }
 };
 
