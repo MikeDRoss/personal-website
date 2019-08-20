@@ -320,7 +320,8 @@
     "type":"Feature",
     "id":"THA",
     "properties":{
-        "name":"Thailand"
+        "name":"Thailand",
+        "id":"THA"
     },
     "geometry":{
         "type":"Polygon",
@@ -590,7 +591,8 @@
     "type":"Feature",
     "id":"KHM",
     "properties":{
-        "name":"Cambodia"
+        "name":"Cambodia",
+        "id":"KHM"
     },
     "geometry":{
         "type":"Polygon",
@@ -1314,7 +1316,8 @@
     "type":"Feature",
     "id":"VNM",
     "properties":{
-        "name":"Vietnam"
+        "name":"Vietnam",
+        "id":"VNM"
     },
     "geometry":{
         "type":"Polygon",
