@@ -91,7 +91,7 @@ export default class Map extends React.Component<{}, State> {
                     <Legend />
                 </ReactMapGL>
                 {clickedFeature && countryImageMap[(clickedFeature as any).properties.id] &&
-                    <CountryImageGallery imageData={countryImageMap[(clickedFeature as any).properties.id]}/>
+                    <CountryImageGallery galleryData={countryImageMap[(clickedFeature as any).properties.id]}/>
                 }
             </div>
         );
