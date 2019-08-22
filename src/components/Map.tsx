@@ -6,11 +6,14 @@ import {defaultMapStyle, generateMapStyle} from '../data/MapData'
 import countryImageMap from '../data/CountryImageData'
 // Without this import, the console displays a 'missing CSS declaration' warning
 import 'mapbox-gl/dist/mapbox-gl.css'
-import CountryImageGallery from './CountryImageGallery'
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import ImageGallery from 'react-image-gallery';
+
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || '';
 
 const initialState = {
+    modal: false,
     mapStyle: defaultMapStyle,
     mapData: null,
     hoveredFeature: null,
@@ -40,6 +43,13 @@ export default class Map extends React.Component<{}, State> {
         const clickedFeature = features && features.find((f:any) => f.source === 'countryLayer');
 
         this.setState({clickedFeature});
+        if(this.isCountryWithPictures()) {
+            this.toggle()
+        }
+    }
+
+    private isCountryWithPictures = () => {
+        return this.state.clickedFeature && countryImageMap[(this.state.clickedFeature as any).properties.id]
     }
 
     public onHover = (event:any) => {
@@ -73,6 +83,12 @@ export default class Map extends React.Component<{}, State> {
         });
     }
 
+    public toggle = () => {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
+
     public render() {
         const { viewport, mapStyle, clickedFeature } = this.state;
       
@@ -90,8 +106,19 @@ export default class Map extends React.Component<{}, State> {
                     {this.renderTooltip()}
                     <Legend />
                 </ReactMapGL>
-                {clickedFeature && countryImageMap[(clickedFeature as any).properties.id] &&
-                    <CountryImageGallery galleryData={countryImageMap[(clickedFeature as any).properties.id]}/>
+
+                {/*TODO: This needs to be refactored..*/}
+                {this.isCountryWithPictures() && 
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className='modal-lg' centered={true} zIndex={1000000} >
+                    <ModalHeader toggle={this.toggle}>{countryImageMap[(clickedFeature as any).properties.id].country}</ModalHeader>
+                    <ModalBody>
+                    <ImageGallery
+                        items={countryImageMap[(clickedFeature as any).properties.id].imageData}
+                        showFullscreenButton={false}
+                        showPlayButton={false}
+                    />
+                    </ModalBody>
+                </Modal>
                 }
             </div>
         );
