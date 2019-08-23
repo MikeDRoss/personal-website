@@ -9,12 +9,12 @@ const countryImageMap: any =
         "name" : "United States",
         "imageData" : [
         {
-            "original": process.env.PUBLIC_URL + "/travel.png",
-            "thumbnail": process.env.PUBLIC_URL + "/travel.png"
+            "original": process.env.PUBLIC_URL + "/travel.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/travel.jpg"
         },
         {
-            "original": process.env.PUBLIC_URL + "/hobbies.png",
-            "thumbnail": process.env.PUBLIC_URL + "/hobbies.png"
+            "original": process.env.PUBLIC_URL + "/hobbies.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/hobbies.jpg"
         }
         ]
     },
