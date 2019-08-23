@@ -113,6 +113,7 @@ export default class Map extends React.Component<{}, State> {
                     <Legend />
                 </ReactMapGL>
                 {countryId && 
+                    /*TODO: only pass gallery modal what it needs, not the whole state */
                     <GalleryModal props={this.state} toggle={this.toggle}/>
                 }
             </div>
