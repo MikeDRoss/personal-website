@@ -1,3 +1,6 @@
+//TODO: change all file formats to .jpg and compress images
+//TODO: programatically populate map with folder naming conventions
+
 const countryImageMap: any = 
 {
      USA: 
@@ -77,6 +80,36 @@ const countryImageMap: any =
         {
             "original": process.env.PUBLIC_URL + "/img/vietnam/vietnam_5.png",
             "thumbnail": process.env.PUBLIC_URL + "/img/vietnam/vietnam_5.png"
+        }
+        ]
+    },
+    COL:
+    {
+        "country" : "Colombia",
+        "imageData" : [
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_0.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_0.jpg"
+        },
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_1.png",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_1.png"
+        },
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_2.png",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_2.png"
+        },
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_3.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_3.jpg"
+        },
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_4.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_4.jpg"
+        },
+        {
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_5.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_5.jpg"
         }
         ]
     }

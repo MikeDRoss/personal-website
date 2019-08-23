@@ -28,6 +28,15 @@
 		grid: ( gutters: 1em )
 	));
 
+// Modal CSS	
+
+	@import '../../../node_modules/bootstrap/scss/functions';
+	@import '../../../node_modules/bootstrap/scss/variables';
+	@import '../../../node_modules/bootstrap/scss/mixins';
+	@import '../../../node_modules/bootstrap/scss/modal';
+	@import '../../../node_modules/bootstrap/scss/transitions';
+	@import '../../../node_modules/bootstrap/scss/close';
+
 // Base.
 
 	@import 'base/page';
@@ -75,11 +84,4 @@
 	@import 'react-image-gallery/styles/scss/image-gallery';
 	@import './custom-image-gallery';
 
-// Modal CSS	
-	@import '../../../node_modules/bootstrap/scss/functions';
-	@import '../../../node_modules/bootstrap/scss/variables';
-	@import '../../../node_modules/bootstrap/scss/mixins';
-	@import '../../../node_modules/bootstrap/scss/reboot';
-	@import '../../../node_modules/bootstrap/scss/modal';
-	@import '../../../node_modules/bootstrap/scss/transitions';
-	@import '../../../node_modules/bootstrap/scss/close';
+	  

@@ -744,7 +744,8 @@
     "type":"Feature",
     "id":"COL",
     "properties":{
-        "name":"Colombia"
+        "name":"Colombia",
+        "id":"COL"
     },
     "geometry":{
         "type":"Polygon",
