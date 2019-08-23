@@ -6,7 +6,7 @@ const countryImageMap: any =
 {
      USA: 
      {
-        "country" : "United States",
+        "name" : "United States",
         "imageData" : [
         {
             "original": process.env.PUBLIC_URL + "/travel.png",
@@ -20,7 +20,7 @@ const countryImageMap: any =
     },
     THA: 
     {
-        "country" : "Thailand",
+        "name" : "Thailand",
         "imageData" : [
         {
             "original": process.env.PUBLIC_URL + "/img/thailand/thailand_0.png",
@@ -42,7 +42,7 @@ const countryImageMap: any =
     },
     KHM:
     {
-        "country" : "Cambodia",
+        "name" : "Cambodia",
         "imageData" : [
         {
             "original": process.env.PUBLIC_URL + "/img/cambodia/cambodia_0.png",
@@ -56,7 +56,7 @@ const countryImageMap: any =
     },
     VNM:
     {
-        "country" : "Vietnam",
+        "name" : "Vietnam",
         "imageData" : [
         {
             "original": process.env.PUBLIC_URL + "/img/vietnam/vietnam_0.png",
@@ -86,7 +86,7 @@ const countryImageMap: any =
     },
     COL:
     {
-        "country" : "Colombia",
+        "name" : "Colombia",
         "imageData" : [
         {
             "original": process.env.PUBLIC_URL + "/img/colombia/colombia_0.jpg",

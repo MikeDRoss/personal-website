@@ -13,11 +13,11 @@ import ImageGallery from 'react-image-gallery';
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || '';
 
 const initialState = {
+    countryGalleryData: null,
     modal: false,
     mapStyle: defaultMapStyle,
     mapData: null,
     hoveredFeature: null,
-    clickedFeature: null,
     x: 0,
     y: 0,
     viewport: {
@@ -29,8 +29,17 @@ const initialState = {
     }
 };
 
-
-type State = typeof initialState;
+//TODO: need stronger types...
+type State = {
+    countryGalleryData: any,
+    modal: boolean,
+    mapStyle: any,
+    mapData: any,
+    hoveredFeature: any,
+    x: number,
+    y: number,
+    viewport: any
+}
 type Viewport = typeof initialState.viewport;
 
 export default class Map extends React.Component<{}, State> {
@@ -40,16 +49,16 @@ export default class Map extends React.Component<{}, State> {
         const {
             features
         } = event;
+
         const clickedFeature = features && features.find((f:any) => f.source === 'countryLayer');
+        const countryId = clickedFeature ? clickedFeature.properties.id : null;
+        const countryGalleryData = countryId ? countryImageMap[countryId] : null;
 
-        this.setState({clickedFeature});
-        if(this.isCountryWithPictures()) {
-            this.toggle()
+        this.setState({countryGalleryData});
+
+        if(countryGalleryData) {
+            this.toggle();
         }
-    }
-
-    private isCountryWithPictures = () => {
-        return this.state.clickedFeature && countryImageMap[(this.state.clickedFeature as any).properties.id]
     }
 
     public onHover = (event:any) => {
@@ -90,7 +99,7 @@ export default class Map extends React.Component<{}, State> {
     }
 
     public render() {
-        const { viewport, mapStyle, clickedFeature } = this.state;
+        const { viewport, mapStyle, countryGalleryData } = this.state;
       
         return (
             <div>
@@ -107,13 +116,12 @@ export default class Map extends React.Component<{}, State> {
                     <Legend />
                 </ReactMapGL>
 
-                {/*TODO: This needs to be refactored..*/}
-                {this.isCountryWithPictures() && 
+                {countryGalleryData && 
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className='modal-lg' centered={true} zIndex={1000000} >
-                    <ModalHeader toggle={this.toggle}>{countryImageMap[(clickedFeature as any).properties.id].country}</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>{countryGalleryData.name}</ModalHeader>
                     <ModalBody>
                     <ImageGallery
-                        items={countryImageMap[(clickedFeature as any).properties.id].imageData}
+                        items={countryGalleryData.imageData}
                         showFullscreenButton={false}
                         showPlayButton={false}
                     />
