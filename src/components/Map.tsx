@@ -3,17 +3,15 @@ import ReactMapGL from 'react-map-gl';
 import Legend from './Legend'
 import {json} from 'd3-request';
 import {defaultMapStyle, generateMapStyle} from '../data/MapData'
-import countryImageMap from '../data/CountryImageData'
 // Without this import, the console displays a 'missing CSS declaration' warning
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import ImageGallery from 'react-image-gallery';
+import GalleryModal from './GalleryModal';
 
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || '';
 
 const initialState = {
-    countryGalleryData: null,
+    countryId: null,
     modal: false,
     mapStyle: defaultMapStyle,
     mapData: null,
@@ -31,7 +29,7 @@ const initialState = {
 
 //TODO: need stronger types...
 type State = {
-    countryGalleryData: any,
+    countryId: any,
     modal: boolean,
     mapStyle: any,
     mapData: any,
@@ -52,11 +50,10 @@ export default class Map extends React.Component<{}, State> {
 
         const clickedFeature = features && features.find((f:any) => f.source === 'countryLayer');
         const countryId = clickedFeature ? clickedFeature.properties.id : null;
-        const countryGalleryData = countryId ? countryImageMap[countryId] : null;
 
-        this.setState({countryGalleryData});
+        this.setState({countryId});
 
-        if(countryGalleryData) {
+        if(countryId) {
             this.toggle();
         }
     }
@@ -99,7 +96,7 @@ export default class Map extends React.Component<{}, State> {
     }
 
     public render() {
-        const { viewport, mapStyle, countryGalleryData } = this.state;
+        const { viewport, mapStyle, countryId } = this.state;
       
         return (
             <div>
@@ -115,18 +112,8 @@ export default class Map extends React.Component<{}, State> {
                     {this.renderTooltip()}
                     <Legend />
                 </ReactMapGL>
-
-                {countryGalleryData && 
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className='modal-lg' centered={true} zIndex={1000000} >
-                    <ModalHeader toggle={this.toggle}>{countryGalleryData.name}</ModalHeader>
-                    <ModalBody>
-                    <ImageGallery
-                        items={countryGalleryData.imageData}
-                        showFullscreenButton={false}
-                        showPlayButton={false}
-                    />
-                    </ModalBody>
-                </Modal>
+                {countryId && 
+                    <GalleryModal props={this.state} toggle={this.toggle}/>
                 }
             </div>
         );
