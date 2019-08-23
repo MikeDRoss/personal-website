@@ -1,5 +1,6 @@
 //TODO: change all file formats to .jpg and compress images
 //TODO: programatically populate map with folder naming conventions
+//TODO: look into srcsets to provide smaller images for mobile
 
 const countryImageMap: any = 
 {
