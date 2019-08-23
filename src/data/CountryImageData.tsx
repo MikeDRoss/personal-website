@@ -93,12 +93,12 @@ const countryImageMap: any =
             "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_0.jpg"
         },
         {
-            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_1.png",
-            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_1.png"
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_1.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_1.jpg"
         },
         {
-            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_2.png",
-            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_2.png"
+            "original": process.env.PUBLIC_URL + "/img/colombia/colombia_2.jpg",
+            "thumbnail": process.env.PUBLIC_URL + "/img/colombia/colombia_2.jpg"
         },
         {
             "original": process.env.PUBLIC_URL + "/img/colombia/colombia_3.jpg",

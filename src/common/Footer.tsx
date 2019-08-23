@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfilePic from '../static/img/Profile_Pic.png'
+import ProfilePic from '../static/img/Profile_Pic.jpg'
 import icons from '../data/IconData'
 
 const Footer:React.FC = () => (
